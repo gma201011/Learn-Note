@@ -1,0 +1,15 @@
+{
+  "name": "20240824",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Immer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "immer": "^10.1.1"
+  }
+}
