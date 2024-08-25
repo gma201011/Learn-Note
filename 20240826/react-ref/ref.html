@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React via CDN with useState</title>
+</head>
+<body>
+    <!-- 这个容器将包含你的 React 组件 -->
+    <div id="root"></div>
+
+    <!-- 引入 React 和 ReactDOM 的 CDN -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+
+    <!-- 如果你想使用 JSX，还需要引入 Babel 编译器 -->
+    <script src="https://unpkg.com/@babel/standalone@7/babel.min.js"></script>
+
+    <!-- 编写你的 React 代码 -->
+    <script type="text/babel" src="./app.js">
+    </script>
+</body>
+</html>
