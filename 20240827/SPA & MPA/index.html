@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      nav {
+        margin-bottom: 20px;
+      }
+      a {
+        margin-right: 10px;
+        text-decoration: none;
+        color: blue;
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="/" data-link>Index</a>
+      <a href="/about" data-link>About</a>
+      <a href="/contact" data-link>Contact</a>
+    </nav>
+    <div id="app"></div>
+    <script>
+      const routes = {
+        "/": "Home Page",
+        "/about": "About Page",
+        "/contact": "Contact Page",
+      };
+
+      function renderContent(content) {
+        const app = document.getElementById("app");
+        app.innerHTML = content;
+      }
+
+      function handleRoute() {
+        const path = window.location.pathname;
+        const content = routes[path] || "404 Not Found";
+        renderContent(content);
+      }
+
+      function navigateTo(url) {
+        history.pushState(null, null, url);
+        handleRoute();
+      }
+
+      window.addEventListener("popstate", handleRoute);
+
+      document.addEventListener("click", (event) => {
+        if (event.target.matches("[data-link]")) {
+          event.preventDefault();
+          navigateTo(event.target.href);
+        }
+      });
+
+      handleRoute();
+    </script>
+  </body>
+</html>
