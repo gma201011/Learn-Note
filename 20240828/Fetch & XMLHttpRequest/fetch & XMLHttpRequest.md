@@ -82,14 +82,29 @@
 
 * 跨域請求
 
-  * XMLHttpRequest 完全依賴 Server 端額外配置，以前會使用 JSONP 的方式繞過同源政策
+  * fetch API 可以在第二個參數加入 CORS 相關配置
 
-  * fetch API 可以配合 CORS 支持跨域請求，有額外的配置選項
+  ```js
+  const corsConfig = {
+    mode: "cors", // cors(default), no-cors, same-origin
+    credentials: "same-origin", // same-origin(default), omit, include
+  };
+  
+  ```
 
-    ```
-    ```
-
-    
+  > mode 參數：
+  >
+  > 1. 預設使用 `cors`，如果是跨來源的簡單請求，則一定會發送，但必須配置 `Access-Control-Allow-Origin` 才會正確響應；如果不是簡單請求，就會先發一個預檢請求檢測是否正確配置 `Access-Control-Allow-Origin`
+  > 2. `no-cors`  表示必須是簡單請求，所以限制只能使用 `GET`、`HEAD` 、`POST`  方法，請求的 headers 只能有 `Accept`、`Accept-Language`、`Content-Type`（但 `Content-Type` 僅限於 `application/x-www-form-urlencoded`、`multipart/form-data` 或 `text/plain`） 等
+  > 3. `same-origin` 則是完全禁止跨域請求
+  >
+  > credentials 參數：
+  >
+  > 1. 預設使用 `same-origin`，僅發送包含同源請求的憑證，跨域就不發
+  > 2. `omit` 不發送任何憑證
+  > 3. `include` 不管是否跨域都會發送憑證
+  >
+  > > 憑證包含 cookie、Authorization（如 `[Authorization: Bearer ...`）、TLS 客戶端證書等
 
 * 錯誤處理
 
@@ -98,10 +113,66 @@
 
 * 取消請求
 
-  * XMLHttpRequest 不提供原生的取消請求，可以通過中斷請求模擬取消
+  * XMLHttpRequest 可以有 `abort()` 方法可以中斷請求：
+
+  ```HTML
+  <body>
+    <button onclick="abortRequest()">Abort</button>
+    <script>
+      var xhr = new XMLHttpRequest();
+  
+      // 初始化一個 GET 請求
+      xhr.open('GET', 'http://localhost:9000/data', true);
+  
+      // 監聽 readyState 變化的事件
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          console.log(xhr.responseText);
+        }
+      };
+  
+      // 發送請求
+      xhr.send();
+  
+      function abortRequest() {
+        xhr.abort();
+      }
+    </script>
+  </body>
+  ```
+
   * fetch 可以使用 AbortController 來達成
+
+  ```html
+  <body>
+    <button onclick="abortRequest()">Abort</button>
+    <script>
+      const controller = new AbortController();
+      const signal = controller.signal;
+  
+  
+      fetch('http://localhost:9000/data', {signal}).then(res => {
+        return res.text();
+      }).then(data => {
+        console.log(data);
+      }).catch(err => {
+        if (err.name === "AbortError") {
+          console.log("Request has been cancel.")
+        } else {
+          console.error('Fetch request failed:', err);
+        }
+      })
+  
+      function abortRequest() {
+        controller.abort();
+      }
+    </script>
+  </body>
+  ```
+
+  > ` controller.abort()` 會拋一個錯誤出來，可以在調用 fetch 時用 catch 捕獲
 
 * 取得請求進度
 
-  * XMLHttpRequest 
+  * XMLHttpRequest：可以用 `xhr.onprogress = function(){...}`  的方法取得
 
