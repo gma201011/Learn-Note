@@ -13,9 +13,9 @@ Leet：1
 | Holiday Break |        |                                    |         |                                  |
 | 2024/08/26    | OK     | JavaScript 函数式编程实践指南 - 10 | No. 189 | Basic - 3 - Binary Tree Traverse |
 | 2024/08/27    | OK     | JavaScript 函数式编程实践指南 - 11 | No. 210 | Basic - 4 - Complexity           |
-| 2024/08/28    | OK     | JavaScript 函数式编程实践指南 - 12 |         |                                  |
-| 2024/08/29    | OK     |                                    |         |                                  |
-| 2024/08/30    |        |                                    |         |                                  |
+| 2024/08/28    | OK     | JavaScript 函数式编程实践指南 - 12 | No.289  | No. 1                            |
+| 2024/08/29    | OK     |                                    | No. 92  |                                  |
+| 2024/08/30    | -400   |                                    |         |                                  |
 | 2024/08/31    |        |                                    |         |                                  |
 
 ```

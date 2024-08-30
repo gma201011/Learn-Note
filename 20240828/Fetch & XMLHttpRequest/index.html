@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const handleDataRequest = async () => {
+        try {
+          const response = await fetch("http://127.0.0.1:9000/data");
+          if (!response["ok"]) {
+            throw new Error("Network failed.");
+          }
+          let data;
+          const contentType = response.headers.get("content-type");
+          if (contentType && contentType.includes("application/json")) {
+            data = await response.json(); // 解析为 JSON
+          } else {
+            data = await response.text(); // 解析为文本格式
+          }
+          console.log("res data: ", data);
+        } catch (err) {
+          console.error(err);
+        }
+      };
+      handleDataRequest();
+    </script>
+  </body>
+</html>

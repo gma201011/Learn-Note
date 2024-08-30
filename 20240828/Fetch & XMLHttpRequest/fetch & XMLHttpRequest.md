@@ -4,22 +4,34 @@
 
   * XMLHttpRequest 使用 callback 來處理 request 與 response
 
-    ```
+    ```js
     var xhr = new XMLHttpRequest();
-    
-    xhr.open("GET", "http://api/data", true); // true 表示非同步
-    
-    xhr.onreadystatechange = function() {
-      if (xhr.readyState === 4 && xhr.status === 200) {
-        console.log(xhr.responseText);
+    xhr.open("GET", "http://localhost:9000/data", true);
+    xhr.onload = function () {
+      if (xhr.status >= 200 && xhr.status < 300) {
+        console.log("Response is: " + xhr.responseText);
+      } else {
+        console.error("Error: " + xhr.responseText);
       }
-    }
-    
+    };
+    xhr.onerror = function () {
+      console.error("Network error or cross-origin request denied");
+    };
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4) {
+        if (xhr.status >= 200 && xhr.status < 300) {
+          console.log("Response is: " + xhr.responseText);
+        } else {
+          console.error("Error: " + xhr.responseText);
+        }
+      }
+    };
     xhr.send();
+    
     ```
-
+  
   * fetch 返回的是 promise，故也可搭配 async await
-
+  
     ```js
     const handleDataRequest = async () => {
       try {
@@ -41,7 +53,7 @@
     }
     handleDataRequest();
     ```
-
+  
     
 
 
@@ -50,46 +62,34 @@
 
   * XMLHttpRequest 用 onload、onerror、unreadystatechange 處理 callback 的各個階段
 
-    * ```js
-      var xhr = new XMLHttpRequest();
-      xhr.open("GET", "http://localhost:9000/data", true);
-      xhr.onload = function () {
-        if (xhr.status >= 200 && xhr.status < 300) {
-          console.log("Response is: " + xhr.responseText);
-        } else {
-          console.error("Error: " + xhr.responseText);
-        }
-      };
-      xhr.onerror = function () {
-        console.error("Network error or cross-origin request denied");
-      };
-      xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4) {
-          if (xhr.status >= 200 && xhr.status < 300) {
-            console.log("Response is: " + xhr.responseText);
-          } else {
-            console.error("Error: " + xhr.responseText);
-          }
-        }
-      };
-      xhr.send();
-      
-      ```
-
     > 補充一下使用 `xhr.onload` 與 `xhr.onreadystatechange` 的差異：
     >
-    >  `onload` 只能在請求完成時觸發，通常只會用於有取得 response 的處理
+    >  `onload` 只能在請求完成時觸發，通常只會用於有取得 response 的處理，對應到的是 `onreadystatechange` 的階段 4
     >
-    > `onreadystatechange` 
-
-    * 
+    > `onreadystatechange` 可以處理 XMLHttpRequest 每個狀態的變化：
+    >
+    > 0：UNSENT
+    >
+    > 1：OPEN
+    >
+    > 2：HEADERS_RECEIVED
+    >
+    > 3：LOADING
+    >
+    > 4：DONE 
 
   * fetch 用 catch、then 來處理請求與響應
 
 * 跨域請求
 
-  * XMLHttpRequest 需要在 Server 端額外配置，以前會使用 JSONP 的方式繞過同源政策
-  * fetch API 支持跨域請求，可以在 CORS 配置
+  * XMLHttpRequest 完全依賴 Server 端額外配置，以前會使用 JSONP 的方式繞過同源政策
+
+  * fetch API 可以配合 CORS 支持跨域請求，有額外的配置選項
+
+    ```
+    ```
+
+    
 
 * 錯誤處理
 

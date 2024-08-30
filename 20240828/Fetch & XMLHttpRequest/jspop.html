@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSONP Example</title>
+</head>
+<body>
+    <h1>JSONP Example</h1>
+    <script>
+        function handleData(data) {
+            console.log('Received data:', data);
+        }
+
+        const script = document.createElement('script');
+        script.src = 'http://localhost:9000/jsonp?callback=handleData';
+        document.body.appendChild(script);
+
+        // Backend 回傳： handleData({"name":"John Doe","age":30,"job":"Developer"})
+        // 在 script 中執行，觸發定義好的 handleData() function
+    </script>
+</body>
+</html>
