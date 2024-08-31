@@ -1,6 +1,6 @@
 ```
 - Rule
-Thesis：700 words
+Thesis：700 words（章節或提案折抵 350）
 專欄：1
 題目：1
 Leet：1
@@ -13,9 +13,9 @@ Leet：1
 | Holiday Break |        |                                    |         |                                  |
 | 2024/08/26    | OK     | JavaScript 函数式编程实践指南 - 10 | No. 189 | Basic - 3 - Binary Tree Traverse |
 | 2024/08/27    | OK     | JavaScript 函数式编程实践指南 - 11 | No. 210 | Basic - 4 - Complexity           |
-| 2024/08/28    | OK     | JavaScript 函数式编程实践指南 - 12 | No.289  | No. 1                            |
-| 2024/08/29    | OK     |                                    | No. 92  |                                  |
-| 2024/08/30    | -400   |                                    |         |                                  |
+| 2024/08/28    | OK     | JavaScript 函数式编程实践指南 - 12 | No.289  | No.1                             |
+| 2024/08/29    | OK     | JavaScript 函数式编程实践指南 - 13 | No. 92  | No.88                            |
+| 2024/08/30    | -350   | JavaScript 函数式编程实践指南 - 14 | No.75   | No.15(ongoing)                   |
 | 2024/08/31    |        |                                    |         |                                  |
 | Holiday Break |        |                                    |         |                                  |
 |               |        |                                    |         |                                  |

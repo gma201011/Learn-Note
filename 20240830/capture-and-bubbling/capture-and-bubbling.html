@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #parent {
+      width: 500px;
+      height: 500px;
+      border: 1px solid red;
+    }
+
+    #inner {
+      width: 300px;
+      height: 300px;
+      border: 1px solid green;
+    
+    }
+    
+    #child {
+      width: 100px;
+      height: 100px;
+      border: 1px solid blue;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="parent">
+    <div id="inner">
+      <div id="child"></div>
+    </div>
+  </div>
+  <script>
+    const parent = document.querySelector("#parent");
+    const inner = document.querySelector("#inner");
+    const child = document.querySelector("#child");
+
+    parent.addEventListener("click", (e) => {
+      console.log("parent");
+    });
+    inner.addEventListener("click", (e) => {
+      console.log("inner");
+    }, true);
+    child.addEventListener("click", (e) => {
+      console.log("child");
+      e.stopPropagation();
+    });
+  </script>
+</body>
+
+</html>
