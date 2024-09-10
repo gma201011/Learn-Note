@@ -9,19 +9,25 @@
  * @param {ListNode} head
  * @return {ListNode}
  */
-var deleteDuplicates = function(head) {
+var deleteDuplicates = function (head) {
   if (head === null || head.next === null) {
     return head;
   }
-  let dummy = new ListNode();
+  const dummy = new ListNode();
   dummy.next = head;
   let curr = dummy;
 
-  if (curr.next !== null && curr.next.next !== null) {
+  while (curr.next !== null && curr.next.next !== null) {
     if (curr.next.val === curr.next.next.val) {
-      const repeatVal = curr.next.val;
+      const nextVal = curr.next.val;
+      while (curr.next && curr.next.val === nextVal) {
+        curr.next = curr.next.next;
+      }
+    } else {
+      curr = curr.next;
     }
   }
+  return dummy.next;
 };
 
 function ListNode(val, next) {
@@ -50,7 +56,7 @@ s6.next = s7;
 s7.next = s8;
 s8.next = s9;
 s9.next = s10;
-deleteDuplicates(s0)
-// console.log(deleteDuplicates(s1).val)
+// deleteDuplicates(s0)
+console.log(deleteDuplicates(s0).val);
 
 // Ans: 1 -> 2 -> 5
