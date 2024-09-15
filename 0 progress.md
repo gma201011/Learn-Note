@@ -21,12 +21,18 @@ Leet：1
 | 2024/09/02    | OK     | JavaScript 函数式编程实践指南 - 16        | No.56   | No.211                           |
 | 2024/09/03    | OK     | JavaScript 函数式编程实践指南 - 17        | No.228  | No.8                             |
 | 2024/09/04    | OK     | JavaScript 函数式编程实践指南 - 18        | No.8    | No.21                            |
-| 2024/09/05    | OK     | ES6 - 2-1                                 |         | No.83                            |
-| 2024/09/06    |        | JavaScript 设计模式核心原理与应用实践 - 3 |         | No.82                            |
-| 2024/09/07    |        |                                           |         |                                  |
+| 2024/09/05    | OK     | ES6 - 2-1                                 | No.3    | No.83                            |
+| 2024/09/06    | OK     | JavaScript 设计模式核心原理与应用实践 - 3 |         | No.82                            |
+| 2024/09/07    | -350   | JavaScript 设计模式核心原理与应用实践 - 4 |         | leet-19                          |
 | Holiday Break |        |                                           |         |                                  |
 | 2024/09/09    |        |                                           |         |                                  |
 | 2024/09/10    |        |                                           |         |                                  |
+| 2024/09/11    |        |                                           |         |                                  |
+| 2024/09/12    |        |                                           |         |                                  |
+| 2024/09/13    |        |                                           |         |                                  |
+| 2024/09/14    |        |                                           |         |                                  |
+| 2024/09/15    |        |                                           |         |                                  |
+| Holiday Break |        |                                           |         |                                  |
 
 ```
 // Node.js 資源
@@ -35,15 +41,5 @@ https://roadmap.sh/nodejs
 https://github.com/ElemeFE/node-interview/blob/master/sections/zh-cn/README.md
 https://github.com/jimuyouyou/node-interview-questions
 https://cchroot.github.io/interview/pages/interview%20questions/nodejs%E7%B2%BE%E9%80%89%E9%9D%A2%E8%AF%95%E9%A2%98.html
-```
-
-
-
-```
-http://127.0.0.1:3001/api/creative/f21fddbf8c0d00fdbb8a6923b81228d3/dsp
-```
-
-```
-curl https://creative-studio.vpon.com/api/creative/62d8261500ba9e7869fe890efa20188c/dsp
 ```
 
