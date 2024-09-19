@@ -25,8 +25,8 @@ Leet：1
 | 2024/09/06    | OK     | JavaScript 设计模式核心原理与应用实践 - 3 | Extra-1 | No.82                            |
 | 2024/09/07    | OK     | JavaScript 设计模式核心原理与应用实践 - 4 |         | No.19                            |
 | Holiday Break |        |                                           |         |                                  |
-| 2024/09/09    | OK     |                                           |         | No.206                           |
-| 2024/09/10    | OK     |                                           |         | No.92(ongoing)                   |
+| 2024/09/09    | OK     | JavaScript 设计模式核心原理与应用实践 - 5 |         | No.206                           |
+| 2024/09/10    | OK     |                                           |         | No.92                            |
 | 2024/09/11    | OK     |                                           |         |                                  |
 | 2024/09/12    | 0.5    |                                           |         |                                  |
 | 2024/09/13    |        |                                           |         |                                  |
@@ -41,5 +41,16 @@ https://roadmap.sh/nodejs
 https://github.com/ElemeFE/node-interview/blob/master/sections/zh-cn/README.md
 https://github.com/jimuyouyou/node-interview-questions
 https://cchroot.github.io/interview/pages/interview%20questions/nodejs%E7%B2%BE%E9%80%89%E9%9D%A2%E8%AF%95%E9%A2%98.html
+```
+
+```
+// Coding Resource
+
+- Backend
+
+
+72hr
+
+50hr
 ```
 
