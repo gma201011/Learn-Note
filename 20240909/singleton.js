@@ -1,5 +1,4 @@
 // With class static method
-// Without constructor, so new a singleMan1 is not allow
 
 class SingleMan1 {
   speak() {
